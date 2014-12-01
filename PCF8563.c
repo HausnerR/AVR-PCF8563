@@ -169,7 +169,7 @@ uint8_t PCF_GetAlarm(PCF_Alarm *alarm)
 	alarm->minute = (((buffer[0] >> 4) & 0x0F) * 10) + (buffer[0] & 0x0F);
 	alarm->hour = (((buffer[1] >> 4) & 0x0B) * 10) + (buffer[1] & 0x0F);
 	alarm->day = (((buffer[2] >> 4) & 0x0B) * 10) + (buffer[2] & 0x0F);
-	alarm->weekday = (buffer[3] & 0x87);
+	alarm->weekday = (((buffer[3] >> 4) & 0x08) * 10) + (buffer[3] & 0x07);
 
 	return 0;
 }
