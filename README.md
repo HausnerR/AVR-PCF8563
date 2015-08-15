@@ -18,7 +18,7 @@ Functions are well named so I think long description are not required.
 
 If you have any questions - feel free to ask me by mail: **kuba [at] pachciarek [dot] pl**
 
-### Examples ###
+### Small doc###
 
 Pre: All constants are defined in header file. If something is not well described, look into PCF documentation. This library use standard Atmel TWI interface to communicate with PCF8563.
 
