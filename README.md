@@ -75,6 +75,14 @@ PCF_SetTimer(PCF_TIMER_1HZ, 100); //Sets 1Hz ticks and counting to 100. Max 255
 PCF_SetTimer(PCF_TIMER_DISABLED, 0); //Disables timer
 ```
 
+Getting timer value:
+
+```
+#!c
+uint8_t x = PCF_GetTimer();
+```
+
+
 Alarm settings looks like date time setting. Create structure, fill them and pass to function. PCF_DISABLE_ALARM makes given parameter "transparent". So in this example alarm turns on every day at 22:22:
 
 ```
