@@ -22,28 +22,28 @@ If you have any questions - feel free to ask me by mail: **kuba [at] pachciarek 
 
 Pre: All constants are defined in header file. If something is not well described, look into PCF documentation. This library use standard Atmel TWI interface to communicate with PCF8563.
 
-To initialize communication with PCF, use function
+To initialize communication with PCF, use function:
 
 ```
 #!c
 PCF_Init();
 ```
 
-You can initialize PCF with one or many interrupts enabled
+You can initialize PCF with one or many interrupts enabled:
 
 ```
 #!c
 PCF_Init(PCF_ALARM_INTERRUPT_ENABLE | PCF_TIMER_INTERRUPT_ENABLE);
 ```
 
-To set clock output use function
+To set clock output use function:
 
 ```
 #!c
 PCF_SetClockOut(PCF_CLKOUT_1024HZ);
 ```
 
-To set PCF date and time you need to create defined structure and pass it to function that send it to PCF
+To set PCF date and time you need to create defined structure and pass it to function that send it to PCF:
 
 ```
 #!c
@@ -59,7 +59,7 @@ dateTime.year = 2015;
 PCF_SetDateTime(&dateTime);
 ```
 
-Getting date and time information from PCF looks similar. Create structure and pass it to function to get data
+Getting date and time information from PCF looks similar. Create structure and pass it to function to get data:
 
 ```
 #!c
@@ -67,7 +67,7 @@ PCF_DateTime pcfDateTime;
 PCF_GetDateTime(&pcfDateTime);
 ```
 
-Timer
+Setting and disabling timer:
 
 ```
 #!c
@@ -75,7 +75,7 @@ PCF_SetTimer(PCF_TIMER_1HZ, 100); //Sets 1Hz ticks and counting to 100. Max 255
 PCF_SetTimer(PCF_TIMER_DISABLED, 0); //Disables timer
 ```
 
-Alarm settings looks like date time setting. Create structure, fill them and pass to function. PCF_DISABLE_ALARM makes given parameter "transparent". So in given example alarm turns on every day at 22:22.
+Alarm settings looks like date time setting. Create structure, fill them and pass to function. PCF_DISABLE_ALARM makes given parameter "transparent". So in this example alarm turns on every day at 22:22:
 
 ```
 #!c
