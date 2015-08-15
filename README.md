@@ -82,7 +82,6 @@ Getting timer value:
 uint8_t x = PCF_GetTimer();
 ```
 
-
 Alarm settings looks like date time setting. Create structure, fill them and pass to function. PCF_DISABLE_ALARM makes given parameter "transparent". So in this example alarm turns on every day at 22:22:
 
 ```
@@ -93,6 +92,14 @@ pcfAlarm.hour = 22;
 pcfAlarm.day = PCF_DISABLE_ALARM;
 pcfAlarm.weekday = PCF_DISABLE_ALARM;
 PCF_SetAlarm(&pcfAlarm);
+```
+
+Getting alarm data:
+
+```
+#!c
+PCF_Alarm pcfAlarm;
+PCF_GetAlarm(&pcfAlarm);
 ```
 
 And if you are use PCF interrupts, use something like that to get information about interrupt source:
