@@ -86,3 +86,20 @@ pcfAlarm.day = PCF_DISABLE_ALARM;
 pcfAlarm.weekday = PCF_DISABLE_ALARM;
 PCF_SetAlarm(&pcfAlarm);
 ```
+
+And if you are use PCF interrupts, use something like that to get information about interrupt source:
+
+```
+#!c
+uint8_t flags = PCF_GetAndClearFlags();
+
+//Alarm enabled
+if (flags & PCF_ALARM_FLAG)
+{
+}
+
+//Timer countdown end
+if (flags & PCF_TIMER_FLAG)
+{
+}
+```
