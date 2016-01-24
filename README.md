@@ -24,29 +24,25 @@ Pre: All constants are defined in header file. If something is not well describe
 
 To initialize communication with PCF, use function:
 
-```
-#!c
+```c
 PCF_Init();
 ```
 
 You can initialize PCF with one or many interrupts enabled:
 
-```
-#!c
+```c
 PCF_Init(PCF_ALARM_INTERRUPT_ENABLE | PCF_TIMER_INTERRUPT_ENABLE);
 ```
 
 To set clock output use function:
 
-```
-#!c
+```c
 PCF_SetClockOut(PCF_CLKOUT_1024HZ);
 ```
 
 To set PCF date and time you need to create defined structure and pass it to function that send it to PCF:
 
-```
-#!c
+```c
 PCF_DateTime dateTime;
 dateTime.second = 43;
 dateTime.minute = 59;
@@ -61,31 +57,27 @@ PCF_SetDateTime(&dateTime);
 
 Getting date and time information from PCF looks similar. Create structure and pass it to function to get data:
 
-```
-#!c
+```c
 PCF_DateTime pcfDateTime;
 PCF_GetDateTime(&pcfDateTime);
 ```
 
 Setting and disabling timer:
 
-```
-#!c
+```c
 PCF_SetTimer(PCF_TIMER_1HZ, 100); //Sets 1Hz ticks and counting to 100. Max 255
 PCF_SetTimer(PCF_TIMER_DISABLED, 0); //Disables timer
 ```
 
 Getting timer value:
 
-```
-#!c
+```c
 uint8_t x = PCF_GetTimer();
 ```
 
 Alarm settings looks like date time setting. Create structure, fill them and pass to function. PCF_DISABLE_ALARM makes given parameter "transparent". So in this example alarm turns on every day at 22:22:
 
-```
-#!c
+```c
 PCF_Alarm pcfAlarm;
 pcfAlarm.minute = 22;
 pcfAlarm.hour = 22;
@@ -96,16 +88,14 @@ PCF_SetAlarm(&pcfAlarm);
 
 Getting alarm data:
 
-```
-#!c
+```c
 PCF_Alarm pcfAlarm;
 PCF_GetAlarm(&pcfAlarm);
 ```
 
 And if you are use PCF interrupts, use something like that to get information about interrupt source:
 
-```
-#!c
+```c
 uint8_t flags = PCF_GetAndClearFlags();
 
 //Alarm enabled
